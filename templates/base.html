@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <style>
+        body { background-color:PaleTurquoise; }
+        header { background-color:LightCyan; }
+        h1 { font-family:times;color:green;font-size:xx-large;text-align:center; }
+        h2 { font-family:times;color:green;font-size:x-large;text-align:center; }
+        p { font-family:times;color:Coral;font-size:large;text-align:left; }
+        ol { font-family:times;color:Coral;font-size:large; }
+        ul { font-family:times;color:Coral;font-size:large; }
+        form { font-family:times;color:Coral;font-size:large; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>"Находилка"</h1>
+    <h2>Простой сайт для поиска различных мест. Начни уже сейчас!!!</h2>
+</header>
+<!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+<div style="background-color:LightCyan;text-align:center;">
+    Не принадлежит никому, сделано для учебных целей
+</div>
+</body>
+</html>

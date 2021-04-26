@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>
+        На этой странички выможете без проблем найти любую точку мира!<br>
+        Для поиска вы можете использовать две вещи:<br>
+    </p>
+    <ul style="font-family:times;font-size:medium;">
+      <li>Координаты</li>
+      <li>Название места</li>
+    </ul>
+    <p>Вот <a href="/help">здесь</a> рассказанно чуть больше о том, как использовать сайт.</p>
+    <p>
+        Надеюсь вы найдёте, что хотите!
+        <br><br>
+    </p>
+    <form autocomplete="off" method="post">
+        {{ form.choice.label }}<br>
+        {{ form.choice(class="form-control") }}<br>
+        {{ form.input.label }}<br>
+        {{ form.input(class="form-control") }}<br>
+        {% for error in form.input.errors %}
+            <div class="alert alert-danger" role="alert" style="color:red;">
+                {{ error }}
+            </div>
+        {% endfor %}
+        <p>{{ form.submit(type="submit") }}</p>
+        {% if form.ans_coord.errors %}
+        <p>{{ form.ans_name.errors }}</p>
+        <p>{{ form.ans_name.label }} <br> {{ form.ans_name.data }}<br></p>
+        <p>{{ form.ans_coord.label }} <br> {{ form.ans_coord.data }}<br></p>
+        <p>Вот где находится эта точка в мире</p> <img src="{{ form.map_global }}" width="600" height="450">
+        <p>И вот где находится эта точка, но поближе</p> <img src="{{ form.map_local }}" width="600" height="450">
+        {% endif %}
+    </form>
+{% endblock %}
